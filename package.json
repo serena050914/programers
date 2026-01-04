@@ -1,0 +1,25 @@
+{
+  "name": "programmers-template",
+  "version": "1.0.0",
+  "description": "프로그래머스 문제 풀이 템플릿",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:file": "vitest run"
+  },
+  "keywords": [
+    "programmers",
+    "algorithm",
+    "vitest"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@vitest/ui": "^2.1.8",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.8"
+  }
+}
