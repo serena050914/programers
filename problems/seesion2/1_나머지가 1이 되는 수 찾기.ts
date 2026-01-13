@@ -15,8 +15,7 @@ import { describe, test, expect } from 'vitest';
  * 3 ≤ n ≤ 1,000,000
  * 
  * 학습 포인트:
- * - 반복 범위 설명 가능?
- * - 조건을 if vs step 중 무엇으로 선택했는가?
+ * 
  */
 
 const makingRestOne = (n: number): number => {
@@ -26,7 +25,7 @@ const makingRestOne = (n: number): number => {
     return n - 1;
 }
 
-function solution(n: number) {
+function solution(n: number): number {
     return makingRestOne(n);
 }
 

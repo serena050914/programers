@@ -1,4 +1,5 @@
 import { describe, test, expect } from 'vitest';
+import { range } from '../utils/arrays';
 
 /**
  * 문제: 약수의 합
@@ -12,11 +13,8 @@ import { describe, test, expect } from 'vitest';
  * - n은 0 이상 3000이하인 정수입니다.
  */
 
-const createRangeFromInput = (n: number): number[] =>
-    Array.from({ length: n }, (_, i) => i + 1);
-
-function solution(n: number) {
-    let arr = createRangeFromInput(n);
+function solution(n: number): number {
+    let arr = range(n);
     return arr.reduce((acc, cur) => {
         if (n % cur === 0) acc += cur;
         return acc;

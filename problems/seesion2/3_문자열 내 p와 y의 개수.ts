@@ -28,7 +28,7 @@ const countHowMany = (arr: string[], smallLetter:string, bigLetter:string): numb
     return n;
 }
 
-function solution(s: string) {
+function solution(s: string): boolean {
     let arr = s.split('');
     let pNumber = countHowMany(arr, 'p', 'P');
     let yNumber = countHowMany(arr, 'y', 'Y');

@@ -2,7 +2,7 @@ import { describe, test, expect } from 'vitest';
 
 /**
  * 문제: 히샤드 수
- * 레벨: 모르겠,,
+ * 레벨: 1
  * 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12947
  * 
  * 문제 설명:
@@ -14,7 +14,7 @@ import { describe, test, expect } from 'vitest';
  * - x는 1 이상, 10000 이하인 정수입니다.
  */
 
-const SumOfDigitNumber=(x) => {
+const SumOfDigitNumber=(x: number): number => {
     return x
     .toString()
     .split('')
@@ -22,7 +22,7 @@ const SumOfDigitNumber=(x) => {
     .reduce((acc,cur)=> acc+cur, 0);
 }
 
-function solution(x) {
+function solution(x: number): boolean {
     if(x%SumOfDigitNumber(x)===0) return true;
     return false;
 }
@@ -31,7 +31,7 @@ function solution(x) {
 // 테스트 케이스
 // ============================================
 
-describe('[문제 제목]', () => {
+describe('하샤드 수', () => {
   test('입력 10일 때', () => {
     expect(solution(10)).toBe(true);
   });
