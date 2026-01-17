@@ -32,18 +32,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
     
-    - name: � Install build tools (for better-sqlite3)
+    - name: 🔧 Install build tools (for better-sqlite3)
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential python3
     
     - name: 📚 Install dependencies
-      run: pnpm install --frozen-lockfile
+      run: pnpm install --frozen-lockfile --ignore-scripts=false
     
     - name: 🔨 Build native modules (better-sqlite3)
       run: |
         echo "Building better-sqlite3 native module..."
-        pnpm rebuild better-sqlite3 || echo "Warning: better-sqlite3 rebuild failed"
+        cd node_modules/.pnpm/better-sqlite3@12.6.2/node_modules/better-sqlite3
+        npm run build-release
+        cd -
+        echo "✅ better-sqlite3 built successfully"
     
     - name: 🧪 Run tests
       run: pnpm test:run
