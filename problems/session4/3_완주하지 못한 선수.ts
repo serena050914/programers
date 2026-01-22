@@ -20,9 +20,21 @@ import { describe, test, expect } from "vitest";
  * - 참가자 중에는 동명이인이 있을 수 있습니다.
  */
 
-function solution(participant: string[], completion: string[]): string {
-  // WEEK4: 여기에 코드를 작성하세요
-  // 힌트: Map을 사용하여 이름별 카운팅
+function solution(participant: Array<string>, completion: Array<string>) {
+  const map: Map<string, number> = new Map();
+
+  participant.forEach((name: string) => {
+    map.set(name, (map.get(name) || 0) + 1);
+  });
+
+  completion.forEach((name: string) => {
+    map.set(name, map.get(name)! - 1);
+  });
+
+  for (let [key, value] of map) {
+    if (value > 0) return key;
+  }
+
   return "";
 }
 

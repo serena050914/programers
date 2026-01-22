@@ -30,9 +30,36 @@ import { describe, test, expect } from "vitest";
  * 7단계: new_id의 길이가 2자 이하라면, new_id의 마지막 문자를 new_id의 길이가 3이 될 때까지 반복해서 끝에 붙입니다.
  */
 
+declare global {
+  interface String {
+    emptyReplaceA(): string;
+    addLastLetter(): string;
+  }
+}
+
+String.prototype.emptyReplaceA = function (): string {
+  if (this.toString() === "") return "a";
+  return this.toString();
+};
+
+String.prototype.addLastLetter = function (): string {
+  let str = this.toString();
+  if (str.length <= 2) {
+    while (str.length <= 2) str += str[str.length - 1];
+  }
+  return str;
+};
+
 function solution(new_id: string): string {
-  // WEEK4: 여기에 코드를 작성하세요
-  return "";
+  return new_id
+    .toLowerCase()
+    .replace(/[^a-z0-9\-_.]/g, "")
+    .replace(/\.{2,}/g, ".")
+    .replace(/^\.|\.$/g, "")
+    .emptyReplaceA()
+    .slice(0, 15)
+    .replace(/\.$/g, "")
+    .addLastLetter();
 }
 
 describe("신규 아이디 추천", () => {
